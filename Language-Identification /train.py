@@ -128,3 +128,4 @@ if __name__ == "__main__":
     pred = model.predict(test_df["text"])
     
     print("Accuracy Score: ", accuracy_score(test_df["lang"], pred))
+        
