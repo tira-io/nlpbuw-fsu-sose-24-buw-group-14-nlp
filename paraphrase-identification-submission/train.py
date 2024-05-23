@@ -1,5 +1,7 @@
 from tira.rest_api_client import Client
+from pathlib import Path
 
+from joblib import load
 from levenshtein import levenshtein_distance
 
 if __name__ == "__main__":
@@ -30,3 +32,7 @@ if __name__ == "__main__":
         mccs[threshold] = mcc
     best_threshold = max(mccs, key=mccs.get)
     print(f"Best threshold: {best_threshold}")
+
+    model = load(Path(__file__).parent / "model.joblib")
+    predictions= model.predict(df)
+
