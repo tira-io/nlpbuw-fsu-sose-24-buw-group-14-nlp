@@ -1,11 +1,9 @@
 from tira.rest_api_client import Client
 from pathlib import Path
-
-from joblib import load
 from levenshtein import levenshtein_distance
+import joblib
 
 if __name__ == "__main__":
-
     # Load the data
     tira = Client()
     text = tira.pd.inputs(
@@ -33,6 +31,6 @@ if __name__ == "__main__":
     best_threshold = max(mccs, key=mccs.get)
     print(f"Best threshold: {best_threshold}")
 
-    model = load(Path(__file__).parent / "model.joblib")
-    predictions= model.predict(df)
-
+    # Save the best threshold as the model
+    model_path = Path(__file__).parent / "model.joblib"
+    joblib.dump(best_threshold, model_path)
