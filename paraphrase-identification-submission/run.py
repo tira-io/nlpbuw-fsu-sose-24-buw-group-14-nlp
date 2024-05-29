@@ -2,7 +2,7 @@ from pathlib import Path
 from tira.rest_api_client import Client
 from tira.third_party_integrations import get_output_directory
 from cosine_similarity import compute_cosine_similarity
-import joblib
+from joblib import load
 import pandas as pd
 
 if __name__ == "__main__":
@@ -17,7 +17,7 @@ if __name__ == "__main__":
     df["cosine_similarity"] = compute_cosine_similarity(df)
 
     # Load the best threshold
-    best_threshold = joblib.load("paraphrase-identification-submission/model.joblib")
+    best_threshold = load(Path(__file__).parent / "model.joblib")
 
     # Make predictions
     df["label"] = (df["cosine_similarity"] >= best_threshold).astype(int)
