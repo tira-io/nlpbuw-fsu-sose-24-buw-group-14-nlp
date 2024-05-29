@@ -5,4 +5,6 @@ ADD levenshtein.py /code/levenshtein.py
 ADD model.joblib /code/model.joblib
 RUN python3 -m nltk.downloader punkt
 
+RUN python3 -m nltk.downloader punkt
+
 ENTRYPOINT [ "python3", "/code/run.py" ]
