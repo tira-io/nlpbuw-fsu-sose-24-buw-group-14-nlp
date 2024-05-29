@@ -17,7 +17,7 @@ if __name__ == "__main__":
     df["cosine_similarity"] = compute_cosine_similarity(df)
 
     # Load the best threshold
-    best_threshold = joblib.load('model.joblib')
+    best_threshold = joblib.load("paraphrase-identification-submission/model.joblib")
 
     # Make predictions
     df["label"] = (df["cosine_similarity"] >= best_threshold).astype(int)

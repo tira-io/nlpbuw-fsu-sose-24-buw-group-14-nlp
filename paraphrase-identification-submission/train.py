@@ -32,4 +32,4 @@ if __name__ == "__main__":
     print(f"Best MCC: {best_mcc}")
 
     # Save the best threshold
-    joblib.dump(best_threshold, 'model.joblib')
+    joblib.dump(best_threshold, r"paraphrase-identification-submission/model.joblib")
