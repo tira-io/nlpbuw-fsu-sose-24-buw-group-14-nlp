@@ -12,4 +12,4 @@ ADD run.py /code/run.py
 RUN pip install -r requirements.txt
 
 # Define the command to run the application
-CMD ["python", "run.py"]
+ENTRYPOINT ["python", "/code/run.py"]
