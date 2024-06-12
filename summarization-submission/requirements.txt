@@ -1,4 +1,7 @@
-nltk
-scikit-learn
+tira
 numpy
+pandas
+scikit-learn
+nltk
 networkx
+jsonlines
