@@ -1,7 +1,6 @@
 from tira.rest_api_client import Client
 from tira.third_party_integrations import get_output_directory
 from pathlib import Path
-import pandas as pd
 from summarization import generate_summary
 
 def main():

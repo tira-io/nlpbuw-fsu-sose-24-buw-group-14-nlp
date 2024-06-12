@@ -1,12 +1,15 @@
 FROM fschlatt/natural-language-processing-exercises:0.0.1
 
-ADD run.py /code/run.py
-ADD src/ /code/src/
-ADD requirements.txt /code/requirements.txt
-ADD data/ /code/data/
-
+# Set the working directory
 WORKDIR /code
 
-RUN pip install --no-cache-dir -r requirements.txt
+# Add the source code and requirements
+ADD src/ /code/src/
+ADD requirements.txt /code/requirements.txt
+ADD run.py /code/run.py
 
-ENTRYPOINT ["python3", "/code/run.py"]
+# Install the dependencies
+RUN pip install -r requirements.txt
+
+# Define the command to run the application
+CMD ["python", "run.py"]
