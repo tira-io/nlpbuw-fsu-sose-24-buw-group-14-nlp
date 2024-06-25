@@ -13,10 +13,12 @@ RUN apt-get update && apt-get install -y \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 
-RUN pip install tira rest_api_client pandas sklearn_crfsuite matplotlib seqeval evaluate
-
 COPY requirements.txt .
+RUN pip install --upgrade pip setuptools wheel
 RUN pip install -r requirements.txt
+
+
+RUN python -m spacy download en_core_web_sm
 
 COPY . /code
 
